@@ -25,15 +25,29 @@ public class Test { //class declaration
         System.out.println("current tracking playing : " + currentTrack);
         */
         
+        /*
         MusicalInstrument musicalInstrument = new MusicalInstrument();
         musicalInstrument.playSound();
         Flute flute = new Flute();
         flute.playSound();
+        */
         
-        //new Circle(2).area();
-        //new Rectangle(2, 3).area();
-        //new Square(5).area();
-        //Shape shape = new Circle(3.5f);
-        //shape.area();
+        Circle circle = new Circle(2);
+        circle.area();
+
+        Rectangle rectangle = new Rectangle(2, 3);
+        rectangle.area();
+
+        Square square = new Square(5);
+        square.area();
+
+        Shape shape;
+        shape = new Circle(5);
+        shape.area();
+        shape = new Rectangle(4, 5);
+        shape.area();
+        shape = new Square(10);
+        shape.area();
+        
     }
 }
