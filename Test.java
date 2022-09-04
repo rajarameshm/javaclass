@@ -12,6 +12,7 @@ public class Test { //class declaration
         //String localVariable = "i am a local variable";
         //System.out.println("this is local variable " + localVariable); //statements/instructions
         
+        /*
         MusicPlayer musicPlayer = new MusicPlayer();
         int currentTrack = musicPlayer.getCurrentTrack();
         System.out.println("current tracking playing : " + currentTrack);
@@ -22,6 +23,12 @@ public class Test { //class declaration
         musicPlayer.playPreviousTrack();
         currentTrack = musicPlayer.getCurrentTrack();
         System.out.println("current tracking playing : " + currentTrack);
+        */
+        
+        MusicalInstrument musicalInstrument = new MusicalInstrument();
+        musicalInstrument.playSound();
+        Flute flute = new Flute();
+        flute.playSound();
         
         //new Circle(2).area();
         //new Rectangle(2, 3).area();
