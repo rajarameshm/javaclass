@@ -8,9 +8,21 @@ public class Test { //class declaration
     }
 
     public static void main(String[] args) { //method declaration
-        System.out.println("Hello World !"); //statements/instructions
-        String localVariable = "i am a local variable";
-        System.out.println("this is local variable " + localVariable); //statements/instructions
+        //System.out.println("Hello World !"); //statements/instructions
+        //String localVariable = "i am a local variable";
+        //System.out.println("this is local variable " + localVariable); //statements/instructions
+        
+        MusicPlayer musicPlayer = new MusicPlayer();
+        int currentTrack = musicPlayer.getCurrentTrack();
+        System.out.println("current tracking playing : " + currentTrack);
+        musicPlayer.playNextTrack();
+        musicPlayer.playNextTrack();
+        currentTrack = musicPlayer.getCurrentTrack();
+        System.out.println("current tracking playing : " + currentTrack);
+        musicPlayer.playPreviousTrack();
+        currentTrack = musicPlayer.getCurrentTrack();
+        System.out.println("current tracking playing : " + currentTrack);
+        
         //new Circle(2).area();
         //new Rectangle(2, 3).area();
         //new Square(5).area();
