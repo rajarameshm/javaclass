@@ -3,6 +3,8 @@ package com.org.array;
 import com.org.immutable.Employee;
 import com.org.immutable.Name;
 
+import java.util.Arrays;
+
 public class ArrayTest {
 
     public ArrayTest() {
@@ -29,6 +31,13 @@ public class ArrayTest {
         System.out.println("Print weeks using for loop in reverse oder...");
         for (int i=6; i>=0; i--) {
             System.out.println("Week " + (i+1) + " is " + weeks[i]);
+        }
+
+        try {
+            System.out.println("Wed is at index 7 : " + weeks[7]);
+        } catch (Exception e) {
+            System.out.println("catch the exception in the method itself : "+e);
+            throw e;
         }
     }
 
@@ -99,8 +108,53 @@ public class ArrayTest {
         String[] weeks = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 
         ArrayTest arrayTest = new ArrayTest();
-        arrayTest.printArray(weeks);
 
+        try {
+            arrayTest.printArray(weeks);
+        } catch (Exception e) {
+            System.out.println("got the exception while calling a method : " + e);
+        }
+
+        /*
+        //try catch finally
+        try {
+            //something
+            System.out.println(weeks[7]);
+        }
+        catch (ArrayIndexOutOfBoundsException exception) {
+            //handle the exception
+            System.out.println("got some exception 1 : " + exception);
+            System.out.println("got some exception 1 message : " + exception.getMessage());
+            System.out.println("got some exception 1 cause : " + exception.getCause());
+            //exception.printStackTrace();
+        }
+        catch (Exception exception) {
+            //handle the exception
+            System.out.println("got some exception 2");
+            System.out.println("got some exception 2 message : " + exception.getMessage());
+            System.out.println("got some exception 2 cause : " + exception.getCause());
+        }
+        catch (Throwable exception) {
+            //handle the exception
+            System.out.println("got some exception 3");
+            System.out.println("got some exception 3 message : " + exception.getMessage());
+            System.out.println("got some exception 3 cause : " + exception.getCause());
+        }
+        finally {
+            System.out.println("code from finally block executed after try block ");
+        }
+
+        try{
+            Employee employeeX = null;
+            System.out.println(employeeX.getId());
+        }
+        catch (NullPointerException exception) {
+            System.out.println("got some exception 1 + " + exception);
+        }
+        catch (Exception exception) {
+            System.out.println("got some exception 2 + " + exception);
+        }
+        */
 
     }
 }
