@@ -33,6 +33,10 @@ public class ArrayTest {
             System.out.println("Week " + (i+1) + " is " + weeks[i]);
         }
 
+
+    }
+
+    public void printArrayThrows(String[] weeks) {
         try {
             System.out.println("Wed is at index 7 : " + weeks[7]);
         } catch (Exception e) {
@@ -42,7 +46,7 @@ public class ArrayTest {
     }
 
     public static void main(String[] args) throws Exception {
-        //declare array and initialized by allocating 5
+        //declare array and allocate size 5
         int[] intArray = new int[5];
 
         //initialize the values
@@ -109,13 +113,36 @@ public class ArrayTest {
 
         ArrayTest arrayTest = new ArrayTest();
 
+        arrayTest.printArray(weeks);
+        arrayTest.tryCatchFinally(weeks);
+        arrayTest.tryCatchNullPointerException();
+
         try {
-            arrayTest.printArray(weeks);
+            arrayTest.printArrayThrows(weeks);
         } catch (Exception e) {
             System.out.println("got the exception while calling a method : " + e);
         }
 
-        /*
+
+
+
+
+    }
+
+    public void tryCatchNullPointerException() {
+        try{
+            Employee employeeX = null;
+            System.out.println(employeeX.getId());
+        }
+        catch (NullPointerException exception) {
+            System.out.println("got some exception 1 + " + exception);
+        }
+        catch (Exception exception) {
+            System.out.println("got some exception 2 + " + exception);
+        }
+    }
+
+    public void tryCatchFinally(String[] weeks) {
         //try catch finally
         try {
             //something
@@ -143,18 +170,5 @@ public class ArrayTest {
         finally {
             System.out.println("code from finally block executed after try block ");
         }
-
-        try{
-            Employee employeeX = null;
-            System.out.println(employeeX.getId());
-        }
-        catch (NullPointerException exception) {
-            System.out.println("got some exception 1 + " + exception);
-        }
-        catch (Exception exception) {
-            System.out.println("got some exception 2 + " + exception);
-        }
-        */
-
     }
 }
