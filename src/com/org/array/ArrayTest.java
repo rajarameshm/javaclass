@@ -5,6 +5,33 @@ import com.org.immutable.Name;
 
 public class ArrayTest {
 
+    public ArrayTest() {
+
+    }
+
+    public void printArray(String[] weeks) {
+
+        System.out.println("Print weeks using for loop ...");
+        for (int i=0; i<7; i++) {
+            System.out.println("Week " + (i+1) + " is " + weeks[i]);
+        }
+
+        System.out.println("Print weeks using foreach ...");
+        for (String week : weeks ) {
+            System.out.println("Week " + week);
+        }
+
+        int sizeOfWeeksArray = weeks.length;
+        System.out.println("size of the weeks array is : " + sizeOfWeeksArray);
+
+        System.out.println("Wed is at index 3 : " + weeks[3]);
+
+        System.out.println("Print weeks using for loop in reverse oder...");
+        for (int i=6; i>=0; i--) {
+            System.out.println("Week " + (i+1) + " is " + weeks[i]);
+        }
+    }
+
     public static void main(String[] args) throws Exception {
         //declare array and initialized by allocating 5
         int[] intArray = new int[5];
@@ -65,11 +92,15 @@ public class ArrayTest {
             System.out.println("the value at index " + i + " is " + intArray1[i]);
         }
 
+        for (int number : intArray ) {
+            System.out.println("the number is " + number);
+        }
+
         String[] weeks = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 
-        for (int i=0; i<7; i++) {
-            System.out.println("Week " + (i+1) + " is " + weeks[i]);
-        }
+        ArrayTest arrayTest = new ArrayTest();
+        arrayTest.printArray(weeks);
+
 
     }
 }
