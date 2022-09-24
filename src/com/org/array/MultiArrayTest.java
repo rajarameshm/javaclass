@@ -31,6 +31,8 @@ public class MultiArrayTest {
         multiArrayTest.copyToNewArrayAndPrintUsingCopyOf();
 
         multiArrayTest.copyToNewArrayAndPrintUsingClone();
+
+        multiArrayTest.copyToNewArrayAndPrintUsingCopyOfRange();
     }
 
     public void printMultiDimentionalArray(int[][] twoDimentionalArray, int size1, int size2) {
@@ -92,6 +94,15 @@ public class MultiArrayTest {
         System.out.println("destination array...");
         for (int i = 0; i < charDestinationArray1.length; i++) {
             System.out.print(" "+charDestinationArray1[i]);
+        }
+    }
+
+    public void copyToNewArrayAndPrintUsingCopyOfRange() {
+        int[] sourceArray = {1, 2, 3, 4, 5, 6, 7};
+        int[] targetArray = Arrays.copyOfRange(sourceArray, 2, 5);
+        System.out.println();
+        for (int i = 0; i < targetArray.length; i++) {
+            System.out.print(" "+targetArray[i]);
         }
     }
 }

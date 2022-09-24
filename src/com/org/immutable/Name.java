@@ -1,6 +1,6 @@
 package com.org.immutable;
 
-class Name implements Cloneable {
+public class Name implements Cloneable {
 
     private String firstName;
     private String lastName;
