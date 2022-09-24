@@ -5,6 +5,7 @@ import java.util.*;
 public class CollectionTest {
 
     public void testArrayList() {
+        System.out.println("testing arrayList .....");
         List<String> listOfStrings = new ArrayList<>();
 
         //list allows to add duplicate elements
@@ -22,6 +23,12 @@ public class CollectionTest {
 
         for (int i=0; i<listOfStrings.size(); i++) {
             System.out.println(listOfStrings.get(i));
+        }
+
+        //using iterator
+        Iterator iterator = listOfStrings.iterator();
+        while (iterator.hasNext()) {//returns true if there is a next element
+            System.out.println(iterator.next());//returns the next element
         }
 
     }
@@ -125,6 +132,27 @@ public class CollectionTest {
 
         collectionTest.testArrayList();
         collectionTest.testLinkedList();
+        collectionTest.compareArray();
 
+    }
+
+    public void compareArray() {
+
+        int[] intArray1 = {1, 2, 3, 4, 5};
+        int[] intArray2 = {1, 2, 3, 4, 5};
+
+
+        if (intArray1 == intArray2) {
+            System.out.println("Arrays are equal");
+        } else {
+            System.out.println("Arrays are not equal");
+        }
+
+        //correct way to compare two arrays
+        if (Arrays.equals(intArray1, intArray2)) {
+            System.out.println("Arrays are equal");
+        } else {
+            System.out.println("Arrays are not equal");
+        }
     }
 }
