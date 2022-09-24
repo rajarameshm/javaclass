@@ -133,6 +133,8 @@ public class CollectionTest {
         collectionTest.testArrayList();
         collectionTest.testLinkedList();
         collectionTest.compareArray();
+        collectionTest.testVector();
+        collectionTest.testMap();
 
     }
 
@@ -153,6 +155,46 @@ public class CollectionTest {
             System.out.println("Arrays are equal");
         } else {
             System.out.println("Arrays are not equal");
+        }
+    }
+
+    public void testVector() {
+
+        System.out.println("testing vector.....");
+
+        Vector vector = new Vector();
+        vector.add("vector element 1");
+        vector.add("vector element 2");
+        vector.add("vector element 3");
+
+        System.out.println(vector);
+    }
+
+    public void testMap() {
+
+        System.out.println("testing map.....");
+        Map<String, String> map = new HashMap<>();
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+        map.put("key3", "value3");
+        System.out.println(map);
+
+        map.put("key4", "value4");
+        System.out.println(map);
+
+        map.put("key5", "value4");
+        System.out.println(map);
+
+        map.put("key5", "value5");
+        System.out.println(map);
+
+        System.out.println("value for key4 is : " + map.get("key4"));
+
+        Set<String> keys = map.keySet();
+        Iterator keyIterator = keys.iterator();
+        while(keyIterator.hasNext()) {
+            String key = (String)keyIterator.next();
+            System.out.println("key : " + key + " value : " + map.get(key));
         }
     }
 }
