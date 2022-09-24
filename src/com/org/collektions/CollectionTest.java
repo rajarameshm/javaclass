@@ -135,6 +135,8 @@ public class CollectionTest {
         collectionTest.compareArray();
         collectionTest.testVector();
         collectionTest.testMap();
+        collectionTest.testLinkedHashMap();
+        collectionTest.testTreeMap();
 
     }
 
@@ -196,5 +198,35 @@ public class CollectionTest {
             String key = (String)keyIterator.next();
             System.out.println("key : " + key + " value : " + map.get(key));
         }
+    }
+
+    public void testLinkedHashMap() {
+
+        System.out.println("testing linkedHashMap.....");
+        LinkedHashMap<String, Integer> weekOrderMap = new LinkedHashMap<>();
+        weekOrderMap.put("Mon", 1);
+        weekOrderMap.put("Tue", 2);
+        weekOrderMap.put("Wed", 3);
+        System.out.println(weekOrderMap);
+
+        weekOrderMap.put("Thu", 4);
+        System.out.println(weekOrderMap);
+
+        weekOrderMap.putIfAbsent("Fri", 5);
+        System.out.println(weekOrderMap);
+
+        weekOrderMap.putIfAbsent("Fri", 6);
+        System.out.println(weekOrderMap);
+    }
+
+    public void testTreeMap() {
+
+        System.out.println("testing treeMap.....");
+        TreeMap<String, String> stateStateCode = new TreeMap<>();
+        stateStateCode.put("Telangana", "TS");
+        stateStateCode.put("Andhra", "AP");
+        stateStateCode.put("Maharashtra", "MH");
+        System.out.println(stateStateCode);
+
     }
 }
