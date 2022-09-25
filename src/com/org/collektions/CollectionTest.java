@@ -190,7 +190,17 @@ public class CollectionTest {
         queue.add("element 1");
         queue.add("element 2");
         queue.add("element 3");
+
         System.out.println(queue);
+        //using iterator
+        Iterator iterator = queue.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+        //for
+        for (String elementInQueue: queue) {
+            System.out.println(elementInQueue);
+        }
 
         element = queue.poll();
         System.out.println("poll element 1: "+element);
