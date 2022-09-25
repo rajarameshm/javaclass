@@ -136,6 +136,56 @@ public class CollectionsTest {
         CollectionsTest collectionsTest = new CollectionsTest();
         collectionsTest.testSort();
 
+        collectionsTest.testComparable();
+        collectionsTest.testComparator();
+
+    }
+
+    public void testComparable() {
+        List<Book> books = new ArrayList<>();
+        books.add(new Book("book1", "author1", 4.5, 2020));
+        books.add(new Book("book2", "author2", 3.5, 2020));
+        books.add(new Book("book3", "author3", 4.0, 2021));
+        books.add(new Book("book4", "author2", 4.5, 2022));
+        books.add(new Book("book5", "author5", 5.0, 2019));
+        System.out.println("books before sorting by year");
+        for (Book book: books) {
+            System.out.println(book);
+        }
+        Collections.sort(books);
+        System.out.println("books after sorting by year");
+        for (Book book: books) {
+            System.out.println(book);
+        }
+    }
+
+    public void testComparator() {
+        List<Book> books = new ArrayList<>();
+        books.add(new Book("book1", "author1", 4.5, 2020));
+        books.add(new Book("book5", "author5", 5.0, 2019));
+        books.add(new Book("book3", "author3", 4.0, 2021));
+        books.add(new Book("book4", "author2", 4.5, 2022));
+        books.add(new Book("book2", "author2", 3.5, 2020));
+        System.out.println("books before sorting");
+        for (Book book: books) {
+            System.out.println(book);
+        }
+        Collections.sort(books, new NameComparator());
+        System.out.println("books after sorting by Name");
+        for (Book book: books) {
+            System.out.println(book);
+        }
+        Collections.sort(books, new RatingComparator());
+        System.out.println("books after sorting by rating");
+        for (Book book: books) {
+            System.out.println(book);
+        }
+
+        Collections.sort(books, Comparator.comparing(Book::getAuthor).thenComparing(Book::getRating));
+        System.out.println("books after sorting by author and rating");
+        for (Book book: books) {
+            System.out.println(book);
+        }
     }
 
 
