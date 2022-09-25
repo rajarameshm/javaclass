@@ -138,6 +138,75 @@ public class CollectionTest {
         collectionTest.testLinkedHashMap();
         collectionTest.testTreeMap();
 
+        collectionTest.testQueue();
+
+    }
+
+    public void testQueue() {
+
+        System.out.println("testing queue.....");
+        Queue<String> queue = new LinkedList<>();
+        System.out.println("is queue empty 1 : " + queue.isEmpty());
+        System.out.println("size of the queue 1 : " + queue.size());
+        queue.add("element 1");
+        System.out.println("element is : "+queue.element());
+        System.out.println("peek is : "+queue.peek());
+        queue.add("element 2");
+        System.out.println("element is : "+queue.element());
+        System.out.println("peek is : "+queue.peek());
+        queue.add("element 3");
+        System.out.println("element is : "+queue.element());
+        System.out.println("peek is : "+queue.peek());
+
+        System.out.println(queue);
+        System.out.println("is queue empty 2 : " + queue.isEmpty());
+        System.out.println("size of the queue 2 : " + queue.size());
+        if (queue.contains("element 2")) {
+            System.out.println("queue contains 'element 2'");
+        } else {
+            System.out.println("queue does not contain 'element 2'");
+        }
+
+        System.out.println("removing an element");
+        String element = queue.remove();
+        System.out.println("removed element 1 : "+element);
+        System.out.println(queue);
+        element = queue.remove();
+        System.out.println("removed element 2 : "+element);
+        System.out.println(queue);
+        element = queue.remove();
+        System.out.println("removed element 3: "+element);
+        System.out.println(queue);
+
+        try {
+            element = queue.remove();
+            System.out.println("removed element 4: "+element);
+            System.out.println(queue);
+        } catch (Exception e) {
+            System.out.println("Exception thrown as expected because of No Such Element");
+        }
+
+        queue = new LinkedList<>();
+        queue.add("element 1");
+        queue.add("element 2");
+        queue.add("element 3");
+        System.out.println(queue);
+
+        element = queue.poll();
+        System.out.println("poll element 1: "+element);
+        System.out.println(queue);
+        element = queue.poll();
+        System.out.println("poll element 2: "+element);
+        System.out.println(queue);
+        element = queue.poll();
+        System.out.println("poll element 3: "+element);
+        System.out.println(queue);
+        element = queue.poll();
+        System.out.println("poll element: "+element);
+        System.out.println(queue);
+
+
+
     }
 
     public void compareArray() {
