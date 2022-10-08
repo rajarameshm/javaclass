@@ -2,13 +2,68 @@ package com.org.file;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 public class FileTest {
     public static void main(String[] args) throws IOException {
         FileTest fileTest = new FileTest();
-        fileTest.createNewFile();
-        fileTest.createNewFileUsingFileOutputStream();
-        fileTest.testBufferedWriter();
+        //fileTest.createNewFile();
+        //fileTest.createNewFileUsingFileOutputStream();
+        //fileTest.testBufferedWriter();
+        //fileTest.renameFile();
+        //fileTest.copyFile();
+        //fileTest.deleteFile();
+        fileTest.testNio();
+    }
+
+    private void testNio() {
+        File sourceFile = new File("test.text");
+        File targetFile = new File("new_test.text");
+        try {
+            Files.copy(sourceFile.toPath(), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("successfully copied !");
+            Files.delete(targetFile.toPath());
+            System.out.println("successfully deleted !");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private void deleteFile() {
+        File file = new File("new_test.text");
+        boolean isDeleted = file.delete();
+        if (isDeleted) {
+            System.out.println("successfully deleted");
+        } else {
+            System.out.println("failed to delete the file");
+        }
+    }
+
+    private void copyFile() throws IOException {
+        File sourceFile = new File("new_test.text");
+        File targetFile = new File("test.text");
+        FileInputStream fileInputStream = new FileInputStream(sourceFile);
+        FileOutputStream fileOutputStream = new FileOutputStream(targetFile);
+        byte[] bufferArray = new byte[1024];
+        int length;
+        while ((length = fileInputStream.read(bufferArray)) > 0) {
+            fileOutputStream.write(bufferArray, 0, length);
+        }
+        fileInputStream.close();
+        fileOutputStream.flush();
+        fileOutputStream.close();
+    }
+
+    private void renameFile() {
+        File file = new File("test.text");
+        boolean isRenamed = file.renameTo(new File("new_test.text"));
+        if (isRenamed) {
+            System.out.println("file successfully renamed from test.text to new_test.text");
+        } else {
+            System.out.println("it is failed");
+        }
     }
 
     private void testBufferedWriter() throws IOException {
